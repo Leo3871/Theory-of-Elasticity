@@ -1,0 +1,8 @@
+side_length: 3
+quarter: 2
+A_function: -sin(t)
+B_function: t
+butcher_table: 3.1
+t0: 0.1
+t_end: 3.0
+dt: 0.05
