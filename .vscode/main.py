@@ -67,10 +67,10 @@ def main():
     print(f"  Время: от {t0} до {t_end}, шаг {dt}")
 
     # Расчет траекторий для всех точек
-
+    print("\n3. РАСЧЕТ ТРАЕКТОРИЙ")
 
     trajectories = []
-
+    print(f"  Интегрирование {len(body.points)} точек...")
 
     for i, point in enumerate(body.points):
         # Интегрируем траектории
@@ -90,7 +90,7 @@ def main():
         if i < 3:
             init = traj.get_initial_position()
             final = traj.get_final_position()
-
+            print(f"  Точка {i}: {init} - {final}")
 
     # Также интегрируем угловые точки
     for corner in body.corner_points:
@@ -98,15 +98,15 @@ def main():
         for t, pos in zip(t_vals, y_vals):
             corner.add_position(t, pos[0], pos[1])
 
-
+    print(f" Всего рассчитано: {len(trajectories)} траекторий")
 
     # Визуализация
-
+    print("\n4. ВИЗУАЛИЗАЦИЯ РЕЗУЛЬТАТОВ")
 
     plotter = Plotter()
 
     # График 1: Квадрат и траектории
-
+    print("  Построение графиков...")
     plotter.plot_square_trajectories_large(body, trajectories, max_scale=10)
 
     # График 2: Линии тока
